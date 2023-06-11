@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SecondViewXib"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SecondView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMT-Zl-86v">
+                    <rect key="frame" x="149" y="259" width="95" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHl-pW-7IV">
+                    <rect key="frame" x="20" y="320" width="353" height="35"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Back"/>
+                    <connections>
+                        <action selector="requestNavigate:" destination="-1" eventType="touchUpInside" id="noZ-A5-5lC"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYL-a8-xXp">
+                    <rect key="frame" x="20" y="435" width="353" height="35"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="FirstView"/>
+                    <connections>
+                        <action selector="requestNavigate:" destination="-1" eventType="touchUpInside" id="8s1-SP-VGm"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lYL-a8-xXp" secondAttribute="trailing" constant="20" id="Bl9-FT-OeU"/>
+                <constraint firstItem="KMT-Zl-86v" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="BlY-F2-8xa"/>
+                <constraint firstItem="KHl-pW-7IV" firstAttribute="top" secondItem="KMT-Zl-86v" secondAttribute="bottom" constant="40" id="ETp-8B-pYA"/>
+                <constraint firstItem="KHl-pW-7IV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="GIO-Jk-pjd"/>
+                <constraint firstItem="lYL-a8-xXp" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="KZN-RS-w3j"/>
+                <constraint firstItem="lYL-a8-xXp" firstAttribute="top" secondItem="KHl-pW-7IV" secondAttribute="bottom" constant="80" id="UNZ-cT-p03"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KHl-pW-7IV" secondAttribute="trailing" constant="20" id="qCb-Fo-jG8"/>
+                <constraint firstItem="KMT-Zl-86v" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="200" id="qcc-qP-4nN"/>
+            </constraints>
+            <point key="canvasLocation" x="34" y="-11"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

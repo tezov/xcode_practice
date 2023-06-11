@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
     weak var coordinator: MainCoordinator?
     
     override func viewDidLoad() {
-        view.backgroundColor = .white
+        view.backgroundColor = .blue
     }
     
 }

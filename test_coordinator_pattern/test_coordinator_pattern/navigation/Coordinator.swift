@@ -7,23 +7,24 @@
 
 import UIKit
 
-protocol Coordinator {
+protocol NavigateConsummer : AnyObject{
     
-    var navigationController: UINavigationController { get set }
-    
-}
-
-protocol NavigateConsummer {
-    
-    func requestNavigate(_ sender: UIButton)
+    func requestNavigate(to route: Route)
     
 }
 
-protocol NavigateProducer {
+protocol NavigateProducer : AnyObject {
     
-    var navigationConsummer: NavigateConsummer? { get set }
+    var navigationConsummer: NavigateConsummer? { get }
     
 }
+
+protocol Coordinator: NavigateConsummer {
+    
+    var navigationController: UINavigationController { get }
+    
+}
+
 
 enum Route:String{
     case HomeView = "HomeView"
@@ -32,19 +33,16 @@ enum Route:String{
     case Back = "Back"
 }
 
-class MainCoordinator: Coordinator, NavigateConsummer {
+class MainCoordinator: Coordinator {
     
-    var navigationController: UINavigationController
+    let navigationController: UINavigationController
     
     init(navigationController:UINavigationController) {
         self.navigationController = navigationController
         openHomeViewController()
     }
     
-    func requestNavigate(_ sender: UIButton) {
-        let routeString = sender.titleLabel?.text ?? "NotFound"
-        guard let route = Route(rawValue: routeString) else { return }
-        
+    func requestNavigate(to route: Route) {
         switch route {
             case Route.HomeView:
                 
@@ -59,24 +57,26 @@ class MainCoordinator: Coordinator, NavigateConsummer {
                 navigationController.popViewController(animated: true)
             break
         }
-        
     }
     
     private func openHomeViewController() {
         let vc = HomeViewController.init()
-        vc.coordinator = self
+        vc.navigationConsummer = self
+        vc.modalPresentationStyle = .fullScreen
         navigationController.pushViewController(vc, animated: false)
     }
     
     private func openFirstViewController() {
         let vc = FirstViewController.init()
-        vc.coordinator = self
+        vc.navigationConsummer = self
+        vc.modalPresentationStyle = .fullScreen
         navigationController.pushViewController(vc, animated: true)
     }
     
     private func openSecondViewController() {
         let vc = SecondViewController.init()
-        vc.coordinator = self
+        vc.navigationConsummer = self
+        vc.modalPresentationStyle = .fullScreen
         navigationController.pushViewController(vc, animated: true)
     }
     

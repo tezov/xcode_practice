@@ -9,7 +9,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewXib" customModule="test_coordinator_pattern" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewXib" customModule="test_coordinator_pattern" customModuleProvider="target">
+            <connections>
+                <outlet property="buttonFirstView" destination="4IA-cu-sIy" id="beN-c1-D5W"/>
+                <outlet property="buttonSecondView" destination="VkZ-GV-Eog" id="dZv-3b-UZj"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>

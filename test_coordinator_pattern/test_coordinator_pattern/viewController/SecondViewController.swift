@@ -7,19 +7,15 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, NavigateProducer {
     
-    weak var coordinator: MainCoordinator?
+    weak var navigationConsummer: NavigateConsummer?
     
     override func viewDidLoad() {
         view.backgroundColor = .green
-        
-        let rect = CGRect(x: 100, y: 100, width: 250, height: 440)
-        let newView = SecondViewXib(frame: rect)
-        if let coordinator = coordinator {
-            newView.navigationConsummer = coordinator
-        }
-        view.addSubview(newView)
+        let xib = SecondViewXib(frame: view.bounds)
+        xib.navigationConsummer = navigationConsummer
+        view.addSubview(xib)
     }
     
 }

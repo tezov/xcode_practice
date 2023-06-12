@@ -11,7 +11,11 @@ class SecondViewXib: UIView, NavigateProducer  {
     
     static let identifier = "SecondViewXib"
     
-    var navigationConsummer: NavigateConsummer?
+    weak var navigationConsummer: NavigateConsummer?
+    
+    @IBOutlet weak var buttonBack: UIButton!
+    
+    @IBOutlet weak var buttonFirstView: UIButton!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -36,6 +40,13 @@ class SecondViewXib: UIView, NavigateProducer  {
     }
     
     @IBAction func requestNavigate(_ sender: UIButton) {
-        navigationConsummer?.requestNavigate(sender)        
+        var route:Route? = nil
+        switch sender {
+            case buttonFirstView : route = Route.FirstView
+            case buttonBack : route = Route.Back
+            default: break
+        }
+        guard let route = route else { return }
+        navigationConsummer?.requestNavigate(to: route)
     }
 }

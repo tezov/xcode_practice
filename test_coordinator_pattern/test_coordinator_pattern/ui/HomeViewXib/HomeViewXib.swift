@@ -11,7 +11,11 @@ class HomeViewXib: UIView, NavigateProducer {
 
     static let identifier = "HomeViewXib"
 
-    var navigationConsummer: NavigateConsummer?
+    weak var navigationConsummer: NavigateConsummer?
+        
+    @IBOutlet weak var buttonFirstView: UIButton!
+    
+    @IBOutlet weak var buttonSecondView: UIButton!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -36,7 +40,14 @@ class HomeViewXib: UIView, NavigateProducer {
     }
     
     @IBAction func requestNavigate(_ sender: UIButton) {
-        navigationConsummer?.requestNavigate(sender)
+        var route:Route? = nil
+        switch sender {
+            case buttonFirstView : route = Route.FirstView
+            case buttonSecondView : route = Route.SecondView
+            default: break
+        }
+        guard let route = route else { return }
+        navigationConsummer?.requestNavigate(to: route)
     }
     
 

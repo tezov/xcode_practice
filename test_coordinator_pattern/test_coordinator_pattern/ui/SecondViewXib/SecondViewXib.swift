@@ -9,7 +9,7 @@ import UIKit
 
 class SecondViewXib: UIView, NavigateProducer  {
     
-    static let identifier = "SecondViewXib"
+    private static let identifier = "SecondViewXib"
     
     weak var navigationConsummer: NavigateConsummer?
     

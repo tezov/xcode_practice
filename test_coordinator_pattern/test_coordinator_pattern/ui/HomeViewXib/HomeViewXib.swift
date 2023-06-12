@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewXib: UIView, NavigateProducer {
 
-    static let identifier = "HomeViewXib"
+    private static let identifier = "HomeViewXib"
 
     weak var navigationConsummer: NavigateConsummer?
         

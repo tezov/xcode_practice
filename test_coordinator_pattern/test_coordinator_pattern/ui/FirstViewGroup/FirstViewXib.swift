@@ -9,7 +9,7 @@ import UIKit
 
 class FirstViewXib: UIView, NavigateProducer  {
     
-    static let identifier = "FirstViewXib"
+    private static let identifier = "FirstViewXib"
     
     weak var navigationConsummer: NavigateConsummer?
     

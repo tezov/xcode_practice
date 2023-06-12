@@ -7,19 +7,19 @@
 
 import UIKit
 
-protocol NavigateConsummer : AnyObject{
-    
-    func requestNavigate(to route: Route)
-    
-}
-
 protocol NavigateProducer : AnyObject {
     
     var navigationConsummer: NavigateConsummer? { get }
     
 }
 
-protocol Coordinator: NavigateConsummer {
+protocol NavigateConsummer : AnyObject{
+    
+    func requestNavigate(to route: Route)
+    
+}
+
+protocol Coordinator {
     
     var navigationController: UINavigationController { get }
     
@@ -41,24 +41,7 @@ class MainCoordinator: Coordinator {
         self.navigationController = navigationController
         openHomeViewController()
     }
-    
-    func requestNavigate(to route: Route) {
-        switch route {
-            case Route.HomeView:
-                
-            break
-            case Route.FirstView:
-                openFirstViewController()
-            break
-            case Route.SecondView:
-                openSecondViewController()
-            break
-            case Route.Back:
-                navigationController.popViewController(animated: true)
-            break
-        }
-    }
-    
+
     private func openHomeViewController() {
         let vc = HomeViewController.init()
         vc.navigationConsummer = self
@@ -80,5 +63,25 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
+}
+
+extension MainCoordinator: NavigateConsummer  {
+    
+    func requestNavigate(to route: Route) {
+        switch route {
+            case Route.HomeView:
+                
+            break
+            case Route.FirstView:
+                openFirstViewController()
+            break
+            case Route.SecondView:
+                openSecondViewController()
+            break
+            case Route.Back:
+                navigationController.popViewController(animated: true)
+            break
+        }
+    }
     
 }

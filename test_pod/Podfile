@@ -1,0 +1,8 @@
+platform :ios, '13.0'
+
+target 'test_pod' do
+  use_frameworks!
+
+  pod 'DGCharts' #, :git => 'https://github.com/danielgindi/Charts.git', :tag => 'v5.0.0'
+
+end

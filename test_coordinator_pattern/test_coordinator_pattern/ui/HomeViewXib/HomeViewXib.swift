@@ -8,15 +8,14 @@
 import UIKit
 
 class HomeViewXib: UIView, NavigateProducer {
-
     private static let identifier = "HomeViewXib"
 
     weak var navigationConsummer: NavigateConsummer?
-        
-    @IBOutlet weak var buttonFirstView: UIButton!
-    
-    @IBOutlet weak var buttonSecondView: UIButton!
-    
+
+    @IBOutlet var buttonFirstView: UIButton!
+
+    @IBOutlet var buttonSecondView: UIButton!
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initView()
@@ -27,7 +26,7 @@ class HomeViewXib: UIView, NavigateProducer {
         initView()
     }
 
-    func initView(){
+    func initView() {
         let nib = UINib(nibName: HomeViewXib.identifier, bundle: nil)
         guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView
         else {
@@ -38,17 +37,15 @@ class HomeViewXib: UIView, NavigateProducer {
         view.backgroundColor = .clear
         addSubview(view)
     }
-    
+
     @IBAction func requestNavigate(_ sender: UIButton) {
-        var route:Route? = nil
+        var route: Route? = nil
         switch sender {
-            case buttonFirstView : route = Route.FirstView
-            case buttonSecondView : route = Route.SecondView
+            case buttonFirstView: route = Route.FirstView
+            case buttonSecondView: route = Route.SecondView
             default: break
         }
         guard let route = route else { return }
         navigationConsummer?.requestNavigate(to: route)
     }
-    
-
 }

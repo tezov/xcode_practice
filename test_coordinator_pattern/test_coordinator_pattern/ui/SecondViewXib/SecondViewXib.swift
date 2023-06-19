@@ -7,15 +7,14 @@
 
 import UIKit
 
-class SecondViewXib: UIView, NavigateProducer  {
-    
+class SecondViewXib: UIView, NavigateProducer {
     private static let identifier = "SecondViewXib"
     
     weak var navigationConsummer: NavigateConsummer?
     
-    @IBOutlet weak var buttonBack: UIButton!
+    @IBOutlet var buttonBack: UIButton!
     
-    @IBOutlet weak var buttonFirstView: UIButton!
+    @IBOutlet var buttonFirstView: UIButton!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -27,7 +26,7 @@ class SecondViewXib: UIView, NavigateProducer  {
         initView()
     }
     
-    func initView(){
+    func initView() {
         let nib = UINib(nibName: SecondViewXib.identifier, bundle: nil)
         guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView
         else {
@@ -40,10 +39,10 @@ class SecondViewXib: UIView, NavigateProducer  {
     }
     
     @IBAction func requestNavigate(_ sender: UIButton) {
-        var route:Route? = nil
+        var route: Route? = nil
         switch sender {
-            case buttonFirstView : route = Route.FirstView
-            case buttonBack : route = Route.Back
+            case buttonFirstView: route = Route.FirstView
+            case buttonBack: route = Route.Back
             default: break
         }
         guard let route = route else { return }

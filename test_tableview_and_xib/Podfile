@@ -1,0 +1,9 @@
+platform :ios, '13.0'
+
+
+target 'test_tableview_and_xib' do
+  use_frameworks!
+
+  pod 'LoremIpsum', '~> 1.0'
+
+end

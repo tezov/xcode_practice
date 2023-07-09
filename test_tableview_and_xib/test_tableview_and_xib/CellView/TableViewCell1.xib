@@ -55,7 +55,7 @@
                 <outlet property="xibText" destination="YIe-LG-Zwy" id="oLO-Eh-0ws"/>
                 <outlet property="xibTitle" destination="IOB-60-9dg" id="hZ4-j6-pAC"/>
             </connections>
-            <point key="canvasLocation" x="555.72519083969462" y="41.197183098591552"/>
+            <point key="canvasLocation" x="171" y="-163"/>
         </tableViewCell>
     </objects>
 </document>

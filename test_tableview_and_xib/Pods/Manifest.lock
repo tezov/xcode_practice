@@ -1,0 +1,16 @@
+PODS:
+  - LoremIpsum (1.0.0)
+
+DEPENDENCIES:
+  - LoremIpsum (~> 1.0)
+
+SPEC REPOS:
+  trunk:
+    - LoremIpsum
+
+SPEC CHECKSUMS:
+  LoremIpsum: 9029c55d36501b2ee0b05cc9ecda11d3a0479160
+
+PODFILE CHECKSUM: 9727c2508996bdabaf9f4407d1bce2b1bba7f01b
+
+COCOAPODS: 1.12.1

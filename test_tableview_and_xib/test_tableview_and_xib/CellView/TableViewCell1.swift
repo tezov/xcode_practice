@@ -32,6 +32,7 @@ class TableViewCell1: UITableViewCell {
     
     func setSubTitle(_ value:String){
         xibSubTitle.text = value
+        xibSubTitle.isHidden = value.count < 30
     }
     
     func setText(_ value:String){

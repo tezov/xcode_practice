@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LoremIpsum
 
 class ViewController: UIViewController {
 
@@ -88,16 +89,23 @@ extension ViewController: UITableViewDelegate {
 extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return 1000
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell1.identifier, for: indexPath) as? TableViewCell1 {
             //view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            
+            let subTitleWordsNumber = Int.random(in: 1...10)
+            let textWordsNumber = Int.random(in: 5...40)
+                      
+            let subTitle = LoremIpsum.words(withNumber: subTitleWordsNumber) ?? "failed to generate lorem ipsum"
+            let text = LoremIpsum.words(withNumber: textWordsNumber) ?? "failed to generate lorem ipsum"
+            
             cell.setTitle("title \(indexPath.row)")
-            cell.setSubTitle("sub title \(indexPath.row)")
-            cell.setText("text \(indexPath.row)")
+            cell.setSubTitle("sub title \(indexPath.row): \(subTitle)")
+            cell.setText("text \(indexPath.row): \(text)")
             return cell
         }
         
